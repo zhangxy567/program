@@ -12,4 +12,8 @@
 #include <iostream>
 #include <mysql.h>
 #include <bits/stdc++.h>
+
 using namespace std;
+
+
+

@@ -1,15 +1,11 @@
 #include "basis.h"
 #include "func.h"
+
 MYSQL mysql;
-MYSQL_RES *res;
-MYSQL_ROW column;
+MYSQL_RES *res;//使用资源1
+MYSQL_ROW column;//使用资源2
 int main()
 {
-    bool input = 0 ;
-    cout<<"You are using the academic management system!!!"<<endl;
-    do
-    {
-        input =menu_aams();
-    }while(input);
+    menu_aams();
     return  0;
 }

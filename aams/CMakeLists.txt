@@ -9,10 +9,10 @@ link_libraries(libmysql)
 
 add_executable(aams main.cpp
         basis.h
-        func.h
-        menu_func.cpp
-        mysql_func.cpp
         etrdef.h
-        another_func.cpp)
+        func.h
+        another_func.cpp
+        menu_func.cpp
+        mysql_func.cpp)
 
 target_link_libraries(aams libmysql)
