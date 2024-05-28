@@ -7,9 +7,9 @@ void secgetpasseord(std::string& password)
     int i = 0;
     cout<<"enter your password "<<endl;
 
-    while (true)
+    while (1)
     {
-        ch = (char)getch(); // 获取键盘输入的字符，但不显示在屏幕上
+        ch = getch(); // 获取键盘输入的字符，但不显示在屏幕上
 
         if (ch == '\r') {
             passwordarray[i] = '\0'; // 将字符串结束符加入密码字符串
@@ -34,17 +34,5 @@ void secgetpasseord(std::string& password)
     //printf("\npassarray: %s\n", passwordarray);//测试链接
     std::string cppstrchange(passwordarray);
     password = cppstrchange;
-
-}
-
-
-bool startsWith(const std::string& str, const std::string& prefix)
-{
-    // 比较前缀长度和字符串长度
-    if (str.size() < prefix.size())
-    {
-        return false;
-    }
-    // 使用 compare 函数进行前缀比较
-    return str.compare(0, prefix.size(), prefix) == 0;
+    return ;
 }

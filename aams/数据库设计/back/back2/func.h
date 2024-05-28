@@ -1,3 +1,7 @@
+//
+// Created by 15189 on 2024/5/15.
+//
+
 #ifndef AAMS_FUNC_H
 #define AAMS_FUNC_H
 
@@ -12,9 +16,8 @@ int getwhichmenu(string username);
 void menu_aams_display_1();
 void menu_aams_display_2();
 void menu_aams_display_3();
-void menu_root();
+void menu_root(const string& username);
 void menu_student(const string& username);
 void menu_teacher(const string& username);
 int usermessget();
 void getstruct(int num);
-bool startsWith(const std::string& str, const std::string& prefix);

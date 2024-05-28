@@ -77,6 +77,13 @@ build CMakeFiles/aams.dir/mysql_func.cpp.obj: CXX_COMPILER__aams_unscanned_Debug
   OBJECT_DIR = CMakeFiles\aams.dir
   OBJECT_FILE_DIR = CMakeFiles\aams.dir
 
+build CMakeFiles/aams.dir/gettext.cpp.obj: CXX_COMPILER__aams_unscanned_Debug C$:/git/program/aams/gettext.cpp || cmake_object_order_depends_target_aams
+  DEP_FILE = CMakeFiles\aams.dir\gettext.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I"C:/Program Files/MySQL/MySQL Server 8.3/include"
+  OBJECT_DIR = CMakeFiles\aams.dir
+  OBJECT_FILE_DIR = CMakeFiles\aams.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target aams
@@ -85,7 +92,7 @@ build CMakeFiles/aams.dir/mysql_func.cpp.obj: CXX_COMPILER__aams_unscanned_Debug
 #############################################
 # Link the executable aams.exe
 
-build aams.exe: CXX_EXECUTABLE_LINKER__aams_Debug CMakeFiles/aams.dir/main.cpp.obj CMakeFiles/aams.dir/another_func.cpp.obj CMakeFiles/aams.dir/menu_func.cpp.obj CMakeFiles/aams.dir/mysql_func.cpp.obj
+build aams.exe: CXX_EXECUTABLE_LINKER__aams_Debug CMakeFiles/aams.dir/main.cpp.obj CMakeFiles/aams.dir/another_func.cpp.obj CMakeFiles/aams.dir/menu_func.cpp.obj CMakeFiles/aams.dir/mysql_func.cpp.obj CMakeFiles/aams.dir/gettext.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -llibmysql  -llibmysql  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   LINK_PATH = -LC:/PROGRA~1/MySQL/MYSQLS~1.3/lib

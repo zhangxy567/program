@@ -43,15 +43,15 @@ void menu_aams()
         {
             //printf("test.");//test点
             //system("pause");
-            int swinum =getwhichmenu(username);
 
-            switch (swinum)//此时mysql仍在链接,进入菜单不许重复链接,故不传密码
+
+            switch (int m = getwhichmenu(username))
             {
-                case 1:menu_root();break;
+                case 1:menu_root(username);break;
                 case 2:menu_student(username);break;
                 case 3:menu_teacher(username);break;
-                default : printf("程序出错");break;
-            }
+                default : printf("程序出错");
+            };
         }
         else
         {
@@ -60,14 +60,14 @@ void menu_aams()
 
 
     }
-
+    return ;
 }
 
 
 
 int getwhichmenu(string testname)
 {
-    int usernum ;
+    int usernum = 0;
     usernum = usermessget() + 1;//用户个数
     getstruct(usernum);
     int i = 0;
@@ -84,25 +84,22 @@ int getwhichmenu(string testname)
 
 
 
-void menu_root()
+void menu_root(const string& username)
 {
     system("cls");
-    cout<<"Hello ";
-    cout<<"Welecome to root menu!!!"<<endl;
+    cout<<"Welecome to root menu!!!";
     system("pause");
 }
 void menu_student(const string& username)
 {
     system("cls");
-    cout<<"Hello student "<<username<<endl;
-    cout<<"Welecome to student menu!!!"<<endl;
+    cout<<"Welecome to username menu!!!";
     system("pause");
 }
 void menu_teacher(const string& username)
 {
     system("cls");
-    cout<<"Hello teacher "<<username<<endl;
-    cout<<"Welecome to teacher menu!!!"<<endl;
+    cout<<"Welecome to teacher menu!!!";
     system("pause");
 }
 
@@ -111,7 +108,7 @@ void menu_teacher(const string& username)
 void getstruct(int num)
 {
     int i = 0;
-    for (; i < num; i++)
+    for (i; i < num; i++)
     {
         sscanf(arr1[i], "%s %d", arr2[i].name_arr, &arr2[i].user_type);
     }
@@ -120,17 +117,17 @@ void getstruct(int num)
     //sscanf(arr1[i], "%s %d", testname, &testnum);
     //printf("%s %d", testname, testnum);
 
-    // for (i=0; i < num; i++)
-    // {
-    //     printf("%s ", arr2[i].name_arr);
-    //     printf("%d\n", arr2[i].user_type);
-    //
-    // }
+    for (i=0; i < num; i++)
+    {
+        printf("%s ", arr2[i].name_arr);
+        printf("%d\n", arr2[i].user_type);
+
+    }
 }
 int usermessget()
 {
-    int k ;
-    FILE* fp = fopen("C:\\git\\program\\aams\\user.txt", "r");
+    int k = 0;
+    FILE* fp = fopen("user.txt", "r");
     if (fp == NULL)
     {
         perror("fopen");
@@ -142,7 +139,7 @@ int usermessget()
         int j = 0;
         {
             char ch;
-            while ((ch = (char)fgetc(fp)) != EOF)
+            while ((ch = fgetc(fp)) != EOF)
             {
                 if (ch == '\n')
                 {
