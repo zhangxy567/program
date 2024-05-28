@@ -37,7 +37,6 @@ void secgetpasseord(std::string& password)
 
 }
 
-
 bool startsWith(const std::string& str, const std::string& prefix)
 {
     // 比较前缀长度和字符串长度

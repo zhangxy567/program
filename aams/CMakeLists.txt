@@ -12,8 +12,9 @@ add_executable(aams main.cpp
         etrdef.h
         func.h
         another_func.cpp
-        menu_func.cpp
         mysql_func.cpp
-        gettext.cpp)
+        gettxt.cpp
+        main_func.cpp
+)
 
 target_link_libraries(aams libmysql)

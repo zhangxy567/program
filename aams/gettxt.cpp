@@ -1,7 +1,7 @@
 #include "basis.h"
 #include "func.h"
 
-int gettext()
+int gettxt()
 {
     MYSQL *conn;
     MYSQL_RES *res;
@@ -33,7 +33,7 @@ int gettext()
     num_fields = mysql_num_fields(res);
 
 
-    FILE *file = fopen("C:\\git\\program\\aams\\output.txt", "w");
+    FILE *file = fopen("C:\\git\\program\\aams\\user.txt", "w"); //this place need be same at main_func.cpp at 216 line
     if (file == NULL)
     {
         fprintf(stderr, "Could not open file for writing\n");
@@ -75,7 +75,6 @@ int gettext()
     }
 
 
-    system("pause");
     // 清理资源
     mysql_free_result(res);
     mysql_close(conn);

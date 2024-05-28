@@ -2,10 +2,9 @@
 #include "basis.h"
 #include "etrdef.h"
 
-bool ConnectMysql( const string & username, const string & password)
+bool ConnectMysql(const string & username, const string & password)
 {
-    mysql_init(&mysql);//初始化mysql
-
+    mysql_init(&mysql);//
 
     if (
             !(mysql_real_connect(&mysql,"localhost",username.c_str(),
