@@ -50,23 +50,30 @@ int gettxt()
         for(i = 0; i < num_fields; i++)
         {
             string str = row[i];
-            string prefix = "20";
+            string prefix2 = "2";
+            string prefix3 = "1";
             fprintf(file, "%s ", row[i] ? row[i] : "NULL");
-
+//1 to root
+//2 to stu
+//3 to teacher
             if(     strcmp(row[i],"root") == 0 )
             {
                 fprintf(file, "1");
             }
-            else if(  startsWith(str , prefix) )
+            else if(  startsWith(str , prefix2) )
             {
                 fprintf(file, "2");
             }
-            else
+            else if(  startsWith(str , prefix3) )
             {
                 fprintf(file, "3");
 
             }
+            else
+            {
+                fprintf(file, "4");
 
+            }
 
 
             fprintf(file, "\n");

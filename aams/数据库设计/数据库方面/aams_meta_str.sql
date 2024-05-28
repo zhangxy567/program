@@ -1,6 +1,11 @@
 #创建数据库
 CREATE DATABASE IF NOT EXISTS aams;
 
+
+
+
+
+
 #创建数据表并且填入数据
 use aams;
 
@@ -156,11 +161,15 @@ use aams;
 ALTER TABLE stu ADD CONSTRAINT stu_fk
 FOREIGN KEY(classid) REFERENCES class (classid) ON DELETE CASCADE ON UPDATE CASCADE;
 
-ALTER TABLE sc ADD  CONSTRAINT sc_fk_1
-FOREIGN KEY (sno) REFERENCES stu (sno) ON DELETE CASCADE ON UPDATE CASCADE;
 
-ALTER TABLE sc ADD  CONSTRAINT sc_fk_2
-FOREIGN KEY (cno) REFERENCES course (cno) ON DELETE CASCADE ON UPDATE CASCADE;
+
+#ALTER TABLE sc ADD  CONSTRAINT sc_fk_1
+#FOREIGN KEY (sno) REFERENCES stu (sno) ON DELETE CASCADE ON UPDATE CASCADE;
+
+#ALTER TABLE sc ADD  CONSTRAINT sc_fk_2
+#FOREIGN KEY (cno) REFERENCES course (cno) ON DELETE CASCADE ON UPDATE CASCADE;
+#放弃这两个键来构建更强大的触发器约束
+
 
 ALTER TABLE course ADD CONSTRAINT course_fk
 FOREIGN KEY (tno) REFERENCES teacher (tno) ON DELETE CASCADE ON UPDATE CASCADE;
@@ -170,6 +179,43 @@ FOREIGN KEY (tno) REFERENCES teacher (tno) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE teaching ADD CONSTRAINT teaching_fk_2 
 FOREIGN KEY (cno) REFERENCES course (cno) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+
+
+
+#创建存储过程
+
+
+##GRANT EXECUTE ON PROCEDURE aams.stu_getmessage TO '20190002'@'localhost';
+#DROP PROCEDURE  IF EXISTS  aams.stu_getmessage ;
+
+
+#学生选课存储过程
+DELIMITER $$
+create procedure aams.stu_getmessage ( in getsno int(11),in getcno int(11) )
+BEGIN
+INSERT INTO sc(sno,cno)
+values(getsno,getcno);
+END $$
+DELIMITER ;
+
+
+##GRANT EXECUTE ON PROCEDURE aams.stu_giveupsc TO '20190002'@'localhost';
+#学生退课存储过程
+DELIMITER $$
+create procedure aams.stu_giveupsc ( in getsno int(11),in getcno int(11) )
+BEGIN
+DELETE FROM sc
+WHERE sc.sno = getsno and sc.cno = getcno;
+END $$
+DELIMITER ;
+
+
+
+
+
+
 
 
 #创建一定的使用用户
@@ -187,24 +233,148 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '1001'@'localhost';
 GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '1002'@'localhost';
 GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '1003'@'localhost';
 
+
 CREATE USER '20190001'@'localhost' IDENTIFIED BY '0001';
 CREATE USER '20190002'@'localhost' IDENTIFIED BY '0002';
 CREATE USER '20190003'@'localhost' IDENTIFIED BY '0003';
 CREATE USER '20190004'@'localhost' IDENTIFIED BY '0004';
 CREATE USER '20190005'@'localhost' IDENTIFIED BY '0005';
 CREATE USER '20190006'@'localhost' IDENTIFIED BY '0006';
+CREATE USER '20190007'@'localhost' IDENTIFIED BY '0007';
+CREATE USER '20190008'@'localhost' IDENTIFIED BY '0008';
+CREATE USER '20190009'@'localhost' IDENTIFIED BY '0009';
+CREATE USER '20190010'@'localhost' IDENTIFIED BY '0010';
+#CREATE USER '20190011'@'localhost' IDENTIFIED BY '0011';
+#CREATE USER '20190012'@'localhost' IDENTIFIED BY '0012';
+#CREATE USER '20190013'@'localhost' IDENTIFIED BY '0013';
+#CREATE USER '20190014'@'localhost' IDENTIFIED BY '0014';
+#CREATE USER '20190015'@'localhost' IDENTIFIED BY '0015';
+#CREATE USER '20190016'@'localhost' IDENTIFIED BY '0016';
+#CREATE USER '20190017'@'localhost' IDENTIFIED BY '0017';
+#CREATE USER '20190018'@'localhost' IDENTIFIED BY '0018';
 
+#1
 GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '20190001'@'localhost';
 GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '20190002'@'localhost';
 GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '20190003'@'localhost';
 GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '20190004'@'localhost';
 GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '20190005'@'localhost';
 GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '20190006'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '20190007'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '20190008'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '20190009'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '20190010'@'localhost';
+/*GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '20190011'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '20190012'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '20190013'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '20190014'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '20190015'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '20190016'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '20190017'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON aams.* TO '20190018'@'localhost';*/
+#2
+GRANT EXECUTE ON PROCEDURE aams.stu_getmessage TO '20190001'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_getmessage TO '20190002'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_getmessage TO '20190003'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_getmessage TO '20190004'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_getmessage TO '20190005'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_getmessage TO '20190006'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_getmessage TO '20190007'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_getmessage TO '20190008'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_getmessage TO '20190009'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_getmessage TO '20190010'@'localhost';
+/*GRANT EXECUTE ON PROCEDURE aams.stu_getmessage TO '20190011'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_getmessage TO '20190012'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_getmessage TO '20190013'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_getmessage TO '20190014'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_getmessage TO '20190015'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_getmessage TO '20190016'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_getmessage TO '20190017'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_getmessage TO '20190018'@'localhost';*/
+
+#3
+GRANT EXECUTE ON PROCEDURE aams.stu_giveupsc TO '20190001'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_giveupsc TO '20190002'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_giveupsc TO '20190003'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_giveupsc TO '20190004'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_giveupsc TO '20190005'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_giveupsc TO '20190006'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_giveupsc TO '20190007'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_giveupsc TO '20190008'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_giveupsc TO '20190009'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_giveupsc TO '20190010'@'localhost';
+/*GRANT EXECUTE ON PROCEDURE aams.stu_giveupsc TO '20190011'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_giveupsc TO '20190012'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_giveupsc TO '20190013'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_giveupsc TO '20190014'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_giveupsc TO '20190015'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_giveupsc TO '20190016'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_giveupsc TO '20190017'@'localhost';
+GRANT EXECUTE ON PROCEDURE aams.stu_giveupsc TO '20190018'@'localhost';*/
+
+
+
+#创建视图
+
+#View_TeacherCourses      /* 这个视图是用来展示老师所教授的课程以及选这些课程的学生*/
+use aams;
+CREATE VIEW View_TeacherCourses AS
+SELECT 
+    teaching.tno,
+    stu.sno, 
+    stu.sname, 
+    course.cno, 
+    course.cname, 
+    sc.grade
+FROM 
+    teaching
+JOIN 
+    course ON teaching.cno = course.cno
+JOIN 
+    sc ON course.cno = sc.cno
+JOIN 
+    stu ON sc.sno = stu.sno;
+
+#View_StudentCourses     /*这个视图是用来展现学生所选课程的*/
+CREATE VIEW View_StudentCourses AS
+SELECT 
+    stu.sno, 
+    stu.sname, 
+    sc.cno, 
+    course.cname, 
+    sc.grade
+FROM 
+    stu 
+JOIN 
+    sc ON stu.sno = sc.sno 
+JOIN 
+    course ON sc.cno = course.cno;
 
 
 
 
+#创建触发器
+
+DELIMITER $$
+
+CREATE TRIGGER sc_add_addstu
+BEFORE INSERT 
+ON aams.sc
+FOR EACH ROW
+BEGIN
+    DECLARE student_exists INT;
+    DECLARE course_exists INT;
 
 
+    SELECT COUNT(*) INTO student_exists FROM stu WHERE sno = NEW.sno;
+
+    SELECT COUNT(*) INTO course_exists FROM course WHERE cno = NEW.cno;
 
 
+    IF student_exists = 0 OR course_exists = 0 
+	THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Insert error: student or course does not exist.';
+    END IF;
+END$$
+
+DELIMITER ;

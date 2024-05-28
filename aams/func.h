@@ -3,7 +3,7 @@
 
 #endif //AAMS_FUNC_H
 
-
+int main();
 void menu_aams();
 bool ConnectMysql( const string & username, const string & password);
 bool mysql_login(string username,string password);
