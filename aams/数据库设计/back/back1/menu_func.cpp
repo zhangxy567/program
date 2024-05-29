@@ -172,8 +172,8 @@ void menu_aams_display_1()
 
     cout<<"You are using the academic management system!!!"<<endl;
     cout<<"********************************"<<endl;
-    cout<<"********** 1  :  login   *******"<<endl;
-    cout<<"********** 0  :   exit   *******"<<endl;
+    cout<<"******* 1  :  login   **********"<<endl;
+    cout<<"******* 0  :   exit   **********"<<endl;
     cout<<"********************************"<<endl;
     cout<<" 1 / 0 ->";
 }

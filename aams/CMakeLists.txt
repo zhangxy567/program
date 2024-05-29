@@ -15,6 +15,7 @@ add_executable(aams main.cpp
         mysql_func.cpp
         gettxt.cpp
         main_func.cpp
+
 )
 
 target_link_libraries(aams libmysql)
