@@ -35,3 +35,4 @@ void addStudent(MYSQL &mysql);
 void deleteStudent(MYSQL &mysql) ;
 void assignCourse(MYSQL &mysql) ;
 void updateGrade(MYSQL &mysql, string username);
+void showClassmates(MYSQL &mysql, std::string username);

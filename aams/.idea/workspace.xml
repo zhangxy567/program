@@ -22,26 +22,20 @@
   <component name="ChangeListManager">
     <list default="true" id="938060a5-e349-4281-a373-962ef422809f" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cache-v2-217e9cf646658eb966c2.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2024-05-28T10-59-09-0437.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.27.0/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.27.0/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.27.0/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.27.0/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.27.0/CompilerIdC/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.27.0/CompilerIdC/a.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.27.0/CompilerIdCXX/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.27.0/CompilerIdCXX/a.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aams.dir/gettext.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aams.dir/gettxt.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aams.dir/gettxt.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aams.dir/main_func.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aams.dir/main_func.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aams.dir/menu_func.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aams.dir/mysql_func.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aams.dir/mysql_func.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/aams.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/aams.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/func.h" beforeDir="false" afterPath="$PROJECT_DIR$/func.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gettxt.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/gettxt.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_func.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main_func.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user.txt" beforeDir="false" afterPath="$PROJECT_DIR$/user.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/数据库设计/back/back1/menu_func.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/数据库设计/back/back1/menu_func.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql_func.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mysql_func.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/user.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/数据库设计/数据库方面/aams_meta_str.sql" beforeDir="false" afterPath="$PROJECT_DIR$/数据库设计/数据库方面/aams_meta_str.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/数据库设计/数据库方面/er图/~$$绘图1.~vsdx" beforeDir="false" afterPath="$PROJECT_DIR$/数据库设计/数据库方面/er图/~$$绘图1.~vsdx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,13 +96,11 @@
       <recent name="C:\git\program\aams" />
       <recent name="C:\git\program\aams\cmake-build-debug" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\git\program\aams\cmake-build-debug" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="aams" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="true" EMULATE_TERMINAL="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="aams" TARGET_NAME="aams" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="aams" RUN_TARGET_NAME="aams">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -145,6 +137,16 @@
       <workItem from="1716955094930" duration="1620000" />
       <workItem from="1716956801600" duration="4754000" />
       <workItem from="1716961614512" duration="56000" />
+      <workItem from="1716961757277" duration="3108000" />
+      <workItem from="1716967656437" duration="987000" />
+      <workItem from="1716992709490" duration="3825000" />
+      <workItem from="1717036158230" duration="1692000" />
+      <workItem from="1717053465845" duration="1203000" />
+      <workItem from="1717120256312" duration="1000" />
+      <workItem from="1717120447695" duration="1000" />
+      <workItem from="1717329604030" duration="4000" />
+      <workItem from="1717424205916" duration="1000" />
+      <workItem from="1717465993891" duration="3000" />
     </task>
     <servers />
   </component>

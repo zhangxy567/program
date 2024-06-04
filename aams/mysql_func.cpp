@@ -8,11 +8,10 @@ bool ConnectMysql(const string & username, const string & password)
 
     if (
             !(mysql_real_connect(&mysql,"localhost",username.c_str(),
-                                 password.c_str(),"aams",3306,NULL, 0))
+             password.c_str(),"aams",3306,NULL, 0))
             )
     {
         cout << "Error connecting to database:" + (string) mysql_error(&mysql) << endl;
-        system("pause");
         return false;
     }
     else

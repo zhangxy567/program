@@ -33,7 +33,7 @@ int gettxt()
     num_fields = mysql_num_fields(res);
 
 
-    FILE *file = fopen("C:\\git\\program\\aams\\user.txt", "w"); //this place need be same at main_func.cpp at 216 line
+    FILE *file = fopen("user.txt", "w"); //this place need be same at main_func.cpp at 216 line
     if (file == NULL)
     {
         fprintf(stderr, "Could not open file for writing\n");

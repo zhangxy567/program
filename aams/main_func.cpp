@@ -1,13 +1,13 @@
 #include "basis.h"
 #include "func.h"
 #include "etrdef.h"
-char arr1[100][100] = { 0 };
+char arr1[1000][1000] = { 0 };
 
 struct username_type
 {
     char name_arr[20];
     int user_type;
-}arr2[100]={0};
+}arr2[1000]={0};
 
 
 void menu_aams()
@@ -57,6 +57,8 @@ void menu_aams()
         }
         else
         {
+            menu_aams_display_3();
+            main();
 
         }
 
@@ -98,7 +100,7 @@ void menu_root() {
     system("cls");
     cout << "Hello ";
     cout << "Welecome to root menu!!!"
-    << endl;
+         << endl;
     system("pause");
     system("cls");
     while (1) {
@@ -154,8 +156,8 @@ void menu_student(const string& username)
     system("cls");
     while(1) {
         int stuop;
-        cout << "请选择功能（1）查看个人信息以及本学期你所选课程  "<<endl<<"\t"<<"  "<<"（2）查看本学期所有课程  （3）选课  （4）退课  "
-        << endl<<"\t"<<"   "<<"(5) 退出登录 " <<" (6) 退出系统"<<endl;
+        cout << "请选择功能（1）查看个人信息以及本学期你所选课程  "<<endl<<"\t"<<"  "<<"（2）查看本学期所有课程   (3)查看你的班级信息 （4）选课  （5）退课  "
+             << endl<<"\t"<<"   "<<"(6) 退出登录 " <<" (7) 退出系统"<<endl;
         cout << "请输入值 :> ";
         cin >> stuop;
         switch (stuop) {
@@ -167,21 +169,21 @@ void menu_student(const string& username)
                 showcourse(mysql,username);
                 break;
             }
-            case 3:{
+            case 4:{
                 selectclass( mysql, username);
                 break;
             }
-            case 4:{
+            case 5:{
                 dropclass(mysql,username);
                 break;
             }
-            case 5:{
+            case 6:{
                 mysql_close(&mysql);
                 system("cls");
                 main();
                 break;
             }
-            case 6:{
+            case 7:{
                 system("cls");
                 cout<<"********************************"<<endl<<endl;
                 cout<<"Successfully exited the system"<<endl<<endl;
@@ -189,6 +191,10 @@ void menu_student(const string& username)
 
                 system("pause");
                 exit(0);
+            }
+            case 3:{
+                showClassmates(mysql, username);
+                break;
             }
 
         }
@@ -261,7 +267,7 @@ void getstruct(int num)
 int usermessget()
 {
     int k ;
-    FILE* fp = fopen("C:\\git\\program\\aams\\user.txt", "r");
+    FILE* fp = fopen("user.txt", "r");
     if (fp == NULL)
     {
         perror("fopen");
@@ -807,7 +813,7 @@ void addTeacher(MYSQL &mysql)
             >> teacher_arr[i].degree >> teacher_arr[i].password >> teacher_arr[i].title >> teacher_arr[i].teachYear;
         // 设置字符编码
         if(     0 == teacher_arr[i].tno  or  0 == teacher_arr[i].age  or "" == teacher_arr[i].tname or "" == teacher_arr[i].sex
-        or "" == teacher_arr[i].degree or "" == teacher_arr[i].title or "" == teacher_arr[i].teachYear or "" == teacher_arr[i].password)
+                or "" == teacher_arr[i].degree or "" == teacher_arr[i].title or "" == teacher_arr[i].teachYear or "" == teacher_arr[i].password)
         {
             cout<<"the "<<num<<" line has error"<<num-1<<"lines have been inserted into aams"<<endl;
             break;
@@ -848,7 +854,7 @@ void addTeacher(MYSQL &mysql)
 
     }
 
-        cout << num<<"位老师中有 "<<flagnum<<"位教师信息添加成功并授予登录权限。" << endl<<endl<<endl;
+    cout << num<<"位老师中有 "<<flagnum<<"位教师信息添加成功并授予登录权限。" << endl<<endl<<endl;
 
 
     system("pause");
@@ -929,26 +935,26 @@ void addStudent(MYSQL &mysql)
     {
 
 
-    cin >> studengt_arr[i].sno>> studengt_arr[i].sname>> studengt_arr[i].sex>> studengt_arr[i].age>>
-    studengt_arr[i]. mrkyer>>studengt_arr[i].classid>> studengt_arr[i].password;
-    if(     0 == studengt_arr[i].sno  or  0 == studengt_arr[i].age  or  0 == studengt_arr[i].classid or
-    "" == studengt_arr[i].sname or "" == studengt_arr[i].sex or "" == studengt_arr[i]. mrkyer or "" == studengt_arr[i].password)
-    {
-        cout<<"the "<<num<<" line has error"<<num-1<<"lines have been inserted into aams"<<endl;
-        break;
-    }
-    // 设置字符编码
-    setCharset(mysql);
+        cin >> studengt_arr[i].sno>> studengt_arr[i].sname>> studengt_arr[i].sex>> studengt_arr[i].age>>
+            studengt_arr[i]. mrkyer>>studengt_arr[i].classid>> studengt_arr[i].password;
+        if(     0 == studengt_arr[i].sno  or  0 == studengt_arr[i].age  or  0 == studengt_arr[i].classid or
+                "" == studengt_arr[i].sname or "" == studengt_arr[i].sex or "" == studengt_arr[i]. mrkyer or "" == studengt_arr[i].password)
+        {
+            cout<<"the "<<num<<" line has error"<<num-1<<"lines have been inserted into aams"<<endl;
+            break;
+        }
+        // 设置字符编码
+        setCharset(mysql);
 
-    // 构建插入语句，向stu表添加学生信息
-    sprintf(sql, "INSERT INTO stu (sno, sname, sex, age, mrkyer,classid) VALUES (%d, '%s', '%s', %d, '%s','%d')",
-            studengt_arr[i].sno, studengt_arr[i].sname.c_str(), studengt_arr[i].sex.c_str(), studengt_arr[i].age,
-            studengt_arr[i].mrkyer.c_str(),studengt_arr[i].classid);
+        // 构建插入语句，向stu表添加学生信息
+        sprintf(sql, "INSERT INTO stu (sno, sname, sex, age, mrkyer,classid) VALUES (%d, '%s', '%s', %d, '%s','%d')",
+                studengt_arr[i].sno, studengt_arr[i].sname.c_str(), studengt_arr[i].sex.c_str(), studengt_arr[i].age,
+                studengt_arr[i].mrkyer.c_str(),studengt_arr[i].classid);
         if (mysql_query(&mysql, sql))
         {
-        std::cout << "Error executing query: " << mysql_error(&mysql) << std::endl;
-        cout<<"insert into stu table error"<<endl;
-        continue;
+            std::cout << "Error executing query: " << mysql_error(&mysql) << std::endl;
+            cout<<"insert into stu table error"<<endl;
+            continue;
         }
 
         // 向mysql系统数据库的user表添加登录信息
@@ -1197,3 +1203,48 @@ void addstu(MYSQL &mysql, std::string username) {
 
     std::cout << "学生选课信息添加成功。" << std::endl;
 }
+
+void showClassmates(MYSQL &mysql, std::string username) {
+    setCharset(mysql);
+    MYSQL_RES *res;
+    MYSQL_ROW row;
+    mysql_options(&mysql, MYSQL_SET_CHARSET_NAME, "gbk"); // 防止在命令行中中文乱码
+
+    // 构建查询语句
+    std::string query = "SELECT stu.sno, stu.sname, stu.sex, class.classname "
+                        "FROM stu "
+                        "JOIN class ON stu.classid = class.classid "
+                        "WHERE stu.classid = (SELECT classid FROM stu WHERE sno = '" + username + "')";
+
+    // 执行查询
+    if (mysql_query(&mysql, query.c_str())) {
+        std::cout << "Error executing query: " << mysql_error(&mysql) << std::endl;
+        mysql_close(&mysql);
+        return;
+    }
+
+    // 获取查询结果
+    res = mysql_use_result(&mysql);
+    int num = mysql_num_fields(res);
+
+    // 得到所有列的名字，并且输出
+    MYSQL_FIELD *fields = mysql_fetch_fields(res);
+    for (int i = 0; i < num; ++i) {
+        std::cout << std::left << std::setw(15) << fields[i].name << "\t";
+    }
+    std::cout << std::endl;
+
+    // 遍历结果集中所有的行
+    while ((row = mysql_fetch_row(res)) != NULL) {
+        // 将当前行中的每一列信息读出
+        for (int i = 0; i < num; ++i) {
+            std::cout << std::left << std::setw(15) << (row[i] ? row[i] : "NULL") << "\t";
+        }
+        std::cout << std::endl;
+    }
+
+    // 释放结果集
+    mysql_free_result(res);
+}
+
+

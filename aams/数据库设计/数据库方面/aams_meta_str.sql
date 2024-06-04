@@ -378,3 +378,21 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+#触发器二,更新成绩不容许小
+use aams;
+DELIMITER $$
+
+CREATE TRIGGER sc_update_grade
+BEFORE UPDATE
+ON aams.sc
+FOR EACH ROW
+BEGIN
+    IF NEW.grade <= OLD.grade THEN
+        SIGNAL SQLSTATE '45001'
+        SET MESSAGE_TEXT = 'Updated score must not be less than the original score.';
+    END IF;
+END $$
+
+DELIMITER ;
+
