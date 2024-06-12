@@ -1,3 +1,0 @@
-C:/git/program/aams/cmake-build-debug/CMakeFiles/aams.dir
-C:/git/program/aams/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/git/program/aams/cmake-build-debug/CMakeFiles/rebuild_cache.dir

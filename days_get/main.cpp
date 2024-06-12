@@ -18,12 +18,12 @@ int main()
 	int year = 0;
 	int month = 0;
 	int daynum = 0;
-	cout << "请输出年和月份->";
+	cout << "年 month";
 	scanf("%d %d", &year, &month);
 
 	daynum = get_day_num(year, month);
 
-	printf("%d年%d月的天数为:  %d", year, month, daynum);
+	printf("%dyear%dmonth's day is:  %d", year, month, daynum);
 
 }
 int get_day_num(int year, int month)
